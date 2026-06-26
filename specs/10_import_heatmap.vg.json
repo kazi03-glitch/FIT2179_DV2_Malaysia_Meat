@@ -1,0 +1,92 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 650,
+  "height": 260,
+  "title": "Import dependency ratio by meat type",
+  "data": {
+    "url": "../data/meat_import_dependency.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "cornerRadius": 4
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": "Year"
+        },
+        "y": {
+          "field": "meat_type",
+          "type": "nominal",
+          "title": null,
+          "sort": ["Poultry", "Pork", "Beef", "Mutton"]
+        },
+        "color": {
+          "field": "idr_percent",
+          "type": "quantitative",
+          "title": "Import dependency (%)",
+          "scale": {
+            "domain": [0, 100],
+            "scheme": "reds"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "meat_type",
+            "type": "nominal",
+            "title": "Meat type"
+          },
+          {
+            "field": "idr_percent",
+            "type": "quantitative",
+            "title": "Import dependency (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#2b2118"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "meat_type",
+          "type": "nominal",
+          "sort": ["Poultry", "Pork", "Beef", "Mutton"]
+        },
+        "text": {
+          "field": "idr_percent",
+          "type": "quantitative",
+          "format": ".0f"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": false
+    }
+  }
+}

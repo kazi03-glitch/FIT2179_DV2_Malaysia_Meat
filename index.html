@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Malaysia Meat Consumption</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <header class="hero">
+    <p class="eyebrow">FIT2179 Data Visualisation II</p>
+
+    <h1>Malaysia’s Meat Dependency</h1>
+
+    <p class="subtitle">
+      Chicken dominates Malaysia’s meat basket, but beef and mutton reveal a deeper import-dependency problem.
+    </p>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="section-text">
+        <h2>Malaysia sits within a meat-consuming region</h2>
+        <p>
+          This map places Malaysia in a Southeast Asian context. Circle size shows total meat consumption per person, helping viewers compare Malaysia with nearby countries before focusing on Malaysia’s internal meat pattern.
+        </p>
+      </div>
+
+      <div id="global_context_map" class="vis"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-text">
+        <h2>Beef and mutton carry the highest supply risk</h2>
+        <p>
+          This heatmap compares each meat type across four simple risk indicators. Beef and mutton show high import dependency and supply risk, while poultry has stronger domestic supply strength.
+        </p>
+      </div>
+
+      <div id="risk_profile_heatmap" class="vis"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-text">
+        <h2>Latest-year meat consumption ranking</h2>
+        <p>
+          This chart compares the latest-year meat consumption values by meat type. It shows whether poultry, beef, mutton or pork contributes most to Malaysia’s meat basket.
+        </p>
+      </div>
+
+      <div id="latest_lollipop" class="vis"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-text">
+        <h2>Meat consumption over time</h2>
+        <p>
+          This chart shows how Malaysia’s meat consumption changes by meat type over time. The lower timeline can be brushed to focus on a selected period.
+        </p>
+      </div>
+
+      <div id="consumption_trend" class="vis"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-text">
+        <h2>Chicken takes the largest share of Malaysia’s meat basket</h2>
+        <p>
+          This stacked area chart shows the changing share of each meat type in Malaysia’s total meat consumption. It helps show whether the diet is becoming more poultry-heavy over time.
+        </p>
+      </div>
+
+      <div id="meat_share_area" class="vis"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-text">
+        <h2>Poultry is close to self-sufficient, but beef and mutton are not</h2>
+        <p>
+          This chart compares each meat type against the 100% self-sufficiency reference line. Values below 100% suggest that local production does not fully meet domestic demand.
+        </p>
+      </div>
+
+      <div id="ssr_bullet" class="vis"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-text">
+        <h2>Self-sufficiency has stayed uneven across meat types</h2>
+        <p>
+          This chart tracks self-sufficiency ratio over time. Poultry remains near or above the 100% reference line, while beef and mutton stay far below it.
+        </p>
+      </div>
+
+      <div id="ssr_slope" class="vis"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-text">
+        <h2>Beef and mutton show the clearest production-consumption gap</h2>
+        <p>
+          This chart compares domestic production with estimated consumption. A larger gap suggests stronger reliance on external supply or imports.
+        </p>
+      </div>
+
+      <div id="prod_vs_cons" class="vis"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-text">
+        <h2>Beef and mutton imports outweigh exports</h2>
+        <p>
+          This diverging bar chart compares import and export values. Imports are shown to the right, while exports are shown to the left, making the trade imbalance easier to see.
+        </p>
+      </div>
+
+      <div id="trade_balance" class="vis"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-text">
+        <h2>Beef and mutton remain the most import-dependent meats</h2>
+        <p>
+          This heatmap shows import dependency ratio by meat type and year. Darker cells indicate stronger reliance on imports, making long-term supply vulnerability easier to compare.
+        </p>
+      </div>
+
+      <div id="import_heatmap" class="vis"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-text">
+        <h2>The food security risk is concentrated in beef and mutton</h2>
+        <p>
+          This quadrant chart combines consumption, self-sufficiency and import dependency. Poultry is consumed the most and remains close to or above domestic self-sufficiency, while beef and mutton have much lower self-sufficiency and larger import dependence.
+        </p>
+      </div>
+
+      <div id="security_quadrant" class="vis"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-text">
+        <h2>Malaysia’s meat basket is overwhelmingly poultry-heavy</h2>
+        <p>
+          This custom waffle chart translates the latest meat consumption pattern into 100 simple units. It makes the dominance of poultry easier to understand at a glance.
+        </p>
+      </div>
+
+      <div id="meat_basket" class="vis"></div>
+    </section>
+
+    <footer>
+      <p>
+        Data sources: test data for setup only. Final version will use Department of Veterinary Services Malaysia, Department of Statistics Malaysia, FAO/Our World in Data, and public geographic boundary data.
+      </p>
+      <p>
+        Author: Your Name | Student ID: Your ID
+      </p>
+    </footer>
+  </main>
+
+  <script src="js/embed.js"></script>
+</body>
+</html>

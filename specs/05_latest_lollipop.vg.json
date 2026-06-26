@@ -1,0 +1,62 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 700,
+  "height": 260,
+  "data": {
+    "url": "../data/meat_pcc_long.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.year == 2024"
+    }
+  ],
+  "mark": {
+    "type": "bar"
+  },
+  "encoding": {
+    "x": {
+      "field": "pcc_kg_per_person",
+      "type": "quantitative",
+      "title": "kg per person per year"
+    },
+    "y": {
+      "field": "meat_type",
+      "type": "nominal",
+      "sort": ["Poultry", "Pork", "Beef", "Mutton"],
+      "title": null
+    },
+    "color": {
+      "field": "meat_type",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Poultry", "Beef", "Mutton", "Pork"],
+        "range": ["#e6a23c", "#8b3a2e", "#7a4ea3", "#d67c8c"]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      {
+        "field": "meat_type",
+        "type": "nominal",
+        "title": "Meat type"
+      },
+      {
+        "field": "pcc_kg_per_person",
+        "type": "quantitative",
+        "title": "kg/person/year",
+        "format": ".1f"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": false
+    }
+  }
+}

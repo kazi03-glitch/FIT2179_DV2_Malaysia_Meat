@@ -1,0 +1,122 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "../data/meat_pcc_long.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "vconcat": [
+    {
+      "width": "container",
+      "height": 280,
+      "title": "Meat consumption trend in Malaysia",
+      "mark": {
+        "type": "line",
+        "point": true,
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "scale": {
+            "domain": {
+              "param": "brush"
+            }
+          },
+          "title": "Year",
+          "axis": {
+            "format": "d"
+          }
+        },
+        "y": {
+          "field": "pcc_kg_per_person",
+          "type": "quantitative",
+          "title": "kg per person per year"
+        },
+        "color": {
+          "field": "meat_type",
+          "type": "nominal",
+          "title": "Meat type",
+          "scale": {
+            "domain": ["Poultry", "Beef", "Mutton", "Pork"],
+            "range": ["#e6a23c", "#8b3a2e", "#7a4ea3", "#d67c8c"]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Year",
+            "format": "d"
+          },
+          {
+            "field": "meat_type",
+            "type": "nominal",
+            "title": "Meat type"
+          },
+          {
+            "field": "pcc_kg_per_person",
+            "type": "quantitative",
+            "title": "kg/person/year",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "width": "container",
+      "height": 60,
+      "mark": {
+        "type": "line"
+      },
+      "params": [
+        {
+          "name": "brush",
+          "select": {
+            "type": "interval",
+            "encodings": ["x"]
+          }
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "title": null,
+          "axis": {
+            "format": "d"
+          }
+        },
+        "y": {
+          "field": "pcc_kg_per_person",
+          "type": "quantitative",
+          "title": null,
+          "axis": {
+            "tickCount": 3,
+            "grid": false
+          }
+        },
+        "color": {
+          "field": "meat_type",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": ["Poultry", "Beef", "Mutton", "Pork"],
+            "range": ["#e6a23c", "#8b3a2e", "#7a4ea3", "#d67c8c"]
+          }
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridOpacity": 0.2
+    }
+  }
+}

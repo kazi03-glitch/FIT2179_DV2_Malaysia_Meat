@@ -1,0 +1,74 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 650,
+  "height": 320,
+  "title": "Import and export value by meat type in 2024",
+  "data": {
+    "url": "../data/meat_trade_long.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.trade_type == 'Import' ? datum.value_rm_million : -datum.value_rm_million",
+      "as": "signed_value"
+    }
+  ],
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 3
+  },
+  "encoding": {
+    "x": {
+      "field": "signed_value",
+      "type": "quantitative",
+      "title": "Trade value, RM million",
+      "axis": {
+        "format": ".2s"
+      }
+    },
+    "y": {
+      "field": "meat_type",
+      "type": "nominal",
+      "title": null,
+      "sort": ["Poultry", "Pork", "Beef", "Mutton"]
+    },
+    "color": {
+      "field": "trade_type",
+      "type": "nominal",
+      "title": "Trade type",
+      "scale": {
+        "domain": ["Import", "Export"],
+        "range": ["#c85c3d", "#4c8c6b"]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "meat_type",
+        "type": "nominal",
+        "title": "Meat type"
+      },
+      {
+        "field": "trade_type",
+        "type": "nominal",
+        "title": "Trade type"
+      },
+      {
+        "field": "value_rm_million",
+        "type": "quantitative",
+        "title": "Value, RM million",
+        "format": ",.0f"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridOpacity": 0.2
+    }
+  }
+}

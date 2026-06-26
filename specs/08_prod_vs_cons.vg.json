@@ -1,0 +1,71 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 650,
+  "height": 320,
+  "title": "Production and consumption gap by meat type in 2024",
+  "data": {
+    "url": "../data/meat_production_consumption.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 3
+  },
+  "encoding": {
+    "x": {
+      "field": "tonnes",
+      "type": "quantitative",
+      "title": "Tonnes",
+      "axis": {
+        "format": ".2s"
+      }
+    },
+    "y": {
+      "field": "meat_type",
+      "type": "nominal",
+      "title": null,
+      "sort": ["Poultry", "Pork", "Beef", "Mutton"]
+    },
+    "yOffset": {
+      "field": "metric"
+    },
+    "color": {
+      "field": "metric",
+      "type": "nominal",
+      "title": "Metric",
+      "scale": {
+        "domain": ["Production", "Consumption"],
+        "range": ["#4c8c6b", "#c85c3d"]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "meat_type",
+        "type": "nominal",
+        "title": "Meat type"
+      },
+      {
+        "field": "metric",
+        "type": "nominal",
+        "title": "Metric"
+      },
+      {
+        "field": "tonnes",
+        "type": "quantitative",
+        "title": "Tonnes",
+        "format": ","
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridOpacity": 0.2
+    }
+  }
+}

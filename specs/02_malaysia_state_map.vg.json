@@ -1,0 +1,120 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 650,
+  "height": 460,
+  "title": "Livestock concentration by Malaysian state",
+  "params": [
+    {
+      "name": "Year_selection",
+      "value": 2024,
+      "bind": {
+        "input": "range",
+        "min": 2020,
+        "max": 2024,
+        "step": 1,
+        "name": "Year: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/wmgeolab/geoBoundaries/main/releaseData/gbOpen/MYS/ADM1/geoBoundaries-MYS-ADM1_simplified.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#eadfce",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.8
+      }
+    },
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/wmgeolab/geoBoundaries/main/releaseData/gbOpen/MYS/ADM1/geoBoundaries-MYS-ADM1_simplified.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.shapeName",
+          "from": {
+            "data": {
+              "url": "../data/state_livestock_wide.csv",
+              "format": {
+                "type": "csv"
+              }
+            },
+            "key": "state",
+            "fields": [
+              "livestock_2020",
+              "livestock_2021",
+              "livestock_2022",
+              "livestock_2023",
+              "livestock_2024"
+            ]
+          }
+        },
+        {
+          "calculate": "toNumber(Year_selection == 2020 ? datum.livestock_2020 : Year_selection == 2021 ? datum.livestock_2021 : Year_selection == 2022 ? datum.livestock_2022 : Year_selection == 2023 ? datum.livestock_2023 : datum.livestock_2024)",
+          "as": "livestock_index"
+        },
+        {
+          "calculate": "Year_selection",
+          "as": "selected_year"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#ffffff",
+        "strokeWidth": 0.8
+      },
+      "encoding": {
+        "color": {
+          "field": "livestock_index",
+          "type": "quantitative",
+          "title": "Livestock index",
+          "scale": {
+            "domain": [0, 110],
+            "scheme": "oranges"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.shapeName",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "selected_year",
+            "type": "quantitative",
+            "title": "Year",
+            "format": "d"
+          },
+          {
+            "field": "livestock_index",
+            "type": "quantitative",
+            "title": "Livestock index",
+            "format": ".0f"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "legend": {
+      "orient": "bottom"
+    }
+  }
+}

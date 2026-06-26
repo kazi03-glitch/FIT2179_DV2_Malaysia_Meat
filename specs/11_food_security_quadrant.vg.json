@@ -1,0 +1,160 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 650,
+  "height": 400,
+  "title": "Consumption level versus domestic self-sufficiency",
+  "data": {
+    "url": "../data/food_security_quadrant.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#2b2118",
+        "strokeDash": [6, 4],
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "y": {
+          "datum": 100
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "bottom",
+        "dx": 6,
+        "dy": -6,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#2b2118"
+      },
+      "encoding": {
+        "x": {
+          "datum": 1
+        },
+        "y": {
+          "datum": 100
+        },
+        "text": {
+          "value": "100% self-sufficiency"
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "opacity": 0.85,
+        "stroke": "#2b2118",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "pcc_kg_per_person",
+          "type": "quantitative",
+          "title": "Consumption, kg per person per year",
+          "scale": {
+            "domain": [0, 60]
+          }
+        },
+        "y": {
+          "field": "ssr_percent",
+          "type": "quantitative",
+          "title": "Self-sufficiency ratio (%)",
+          "scale": {
+            "domain": [0, 120]
+          }
+        },
+        "size": {
+          "field": "import_dependency_percent",
+          "type": "quantitative",
+          "title": "Import dependency (%)",
+          "scale": {
+            "domain": [0, 100],
+            "range": [120, 1200]
+          }
+        },
+        "color": {
+          "field": "meat_type",
+          "type": "nominal",
+          "title": "Meat type",
+          "scale": {
+            "domain": ["Poultry", "Beef", "Mutton", "Pork"],
+            "range": ["#e6a23c", "#8b3a2e", "#7a4ea3", "#d67c8c"]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "meat_type",
+            "type": "nominal",
+            "title": "Meat type"
+          },
+          {
+            "field": "pcc_kg_per_person",
+            "type": "quantitative",
+            "title": "kg/person/year",
+            "format": ".1f"
+          },
+          {
+            "field": "ssr_percent",
+            "type": "quantitative",
+            "title": "SSR (%)",
+            "format": ".1f"
+          },
+          {
+            "field": "import_dependency_percent",
+            "type": "quantitative",
+            "title": "Import dependency (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 12,
+        "fontSize": 13,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": {
+          "field": "pcc_kg_per_person",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "ssr_percent",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "meat_type"
+        },
+        "color": {
+          "field": "meat_type",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Poultry", "Beef", "Mutton", "Pork"],
+            "range": ["#e6a23c", "#8b3a2e", "#7a4ea3", "#d67c8c"]
+          },
+          "legend": null
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridOpacity": 0.2
+    }
+  }
+}

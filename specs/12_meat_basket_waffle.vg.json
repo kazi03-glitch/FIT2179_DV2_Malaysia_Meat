@@ -1,0 +1,77 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 500,
+  "title": "Malaysia's latest meat basket, shown as 100 units",
+  "data": {
+    "sequence": {
+      "start": 1,
+      "stop": 101,
+      "step": 1,
+      "as": "id"
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.id <= 70 ? 'Poultry' : datum.id <= 90 ? 'Pork' : datum.id <= 98 ? 'Beef' : 'Mutton'",
+      "as": "meat_type"
+    },
+    {
+      "calculate": "(datum.id - 1) % 10",
+      "as": "column"
+    },
+    {
+      "calculate": "floor((datum.id - 1) / 10)",
+      "as": "row"
+    },
+    {
+      "calculate": "datum.meat_type == 'Poultry' ? '70 units' : datum.meat_type == 'Pork' ? '20 units' : datum.meat_type == 'Beef' ? '8 units' : '2 units'",
+      "as": "share_label"
+    }
+  ],
+  "mark": {
+    "type": "square",
+    "size": 900,
+    "stroke": "#fffaf3",
+    "strokeWidth": 2
+  },
+  "encoding": {
+    "x": {
+      "field": "column",
+      "type": "ordinal",
+      "axis": null
+    },
+    "y": {
+      "field": "row",
+      "type": "ordinal",
+      "sort": "descending",
+      "axis": null
+    },
+    "color": {
+      "field": "meat_type",
+      "type": "nominal",
+      "title": "Meat type",
+      "scale": {
+        "domain": ["Poultry", "Pork", "Beef", "Mutton"],
+        "range": ["#e6a23c", "#d67c8c", "#8b3a2e", "#7a4ea3"]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "meat_type",
+        "type": "nominal",
+        "title": "Meat type"
+      },
+      {
+        "field": "share_label",
+        "type": "nominal",
+        "title": "Approximate share"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    }
+  }
+}

@@ -1,0 +1,17 @@
+meat_type,indicator,score
+Poultry,Consumption level,95
+Poultry,Domestic supply strength,90
+Poultry,Import dependency,10
+Poultry,Supply risk,20
+Pork,Consumption level,45
+Pork,Domestic supply strength,75
+Pork,Import dependency,25
+Pork,Supply risk,35
+Beef,Consumption level,25
+Beef,Domestic supply strength,20
+Beef,Import dependency,80
+Beef,Supply risk,85
+Mutton,Consumption level,10
+Mutton,Domestic supply strength,10
+Mutton,Import dependency,90
+Mutton,Supply risk,95

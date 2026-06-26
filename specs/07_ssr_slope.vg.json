@@ -1,0 +1,112 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 650,
+  "height": 320,
+  "title": "Self-sufficiency ratio trend by meat type",
+  "data": {
+    "url": "../data/meat_ssr_long.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "point": true,
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "quantitative",
+          "title": "Year",
+          "axis": {
+            "format": "d"
+          }
+        },
+        "y": {
+          "field": "ssr_percent",
+          "type": "quantitative",
+          "title": "Self-sufficiency ratio (%)",
+          "scale": {
+            "domain": [0, 120]
+          }
+        },
+        "color": {
+          "field": "meat_type",
+          "type": "nominal",
+          "title": "Meat type",
+          "scale": {
+            "domain": ["Poultry", "Beef", "Mutton", "Pork"],
+            "range": ["#e6a23c", "#8b3a2e", "#7a4ea3", "#d67c8c"]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "quantitative",
+            "title": "Year",
+            "format": "d"
+          },
+          {
+            "field": "meat_type",
+            "type": "nominal",
+            "title": "Meat type"
+          },
+          {
+            "field": "ssr_percent",
+            "type": "quantitative",
+            "title": "SSR (%)",
+            "format": ".1f"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#2b2118",
+        "strokeDash": [6, 4],
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "y": {
+          "datum": 100
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "bottom",
+        "dx": 6,
+        "dy": -6,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#2b2118"
+      },
+      "encoding": {
+        "x": {
+          "datum": 2020
+        },
+        "y": {
+          "datum": 100
+        },
+        "text": {
+          "value": "100% self-sufficiency line"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridOpacity": 0.2
+    }
+  }
+}

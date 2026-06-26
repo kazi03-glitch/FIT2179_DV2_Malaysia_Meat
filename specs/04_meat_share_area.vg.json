@@ -1,0 +1,97 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 650,
+  "height": 320,
+  "title": "Share of Malaysia's meat basket over time",
+  "data": {
+    "url": "../data/meat_pcc_long.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "pcc_kg_per_person",
+          "as": "total_meat"
+        }
+      ],
+      "groupby": ["year"]
+    },
+    {
+      "calculate": "datum.pcc_kg_per_person / datum.total_meat",
+      "as": "meat_share"
+    }
+  ],
+  "mark": {
+    "type": "area",
+    "line": true
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "quantitative",
+      "title": "Year",
+      "axis": {
+        "format": "d"
+      }
+    },
+    "y": {
+      "field": "meat_share",
+      "type": "quantitative",
+      "title": "Share of total meat consumption",
+      "axis": {
+        "format": "%"
+      },
+      "scale": {
+        "domain": [0, 1]
+      },
+      "stack": "zero"
+    },
+    "color": {
+      "field": "meat_type",
+      "type": "nominal",
+      "title": "Meat type",
+      "scale": {
+        "domain": ["Poultry", "Beef", "Mutton", "Pork"],
+        "range": ["#e6a23c", "#8b3a2e", "#7a4ea3", "#d67c8c"]
+      }
+    },
+    "tooltip": [
+      {
+        "field": "year",
+        "type": "quantitative",
+        "title": "Year",
+        "format": "d"
+      },
+      {
+        "field": "meat_type",
+        "type": "nominal",
+        "title": "Meat type"
+      },
+      {
+        "field": "pcc_kg_per_person",
+        "type": "quantitative",
+        "title": "kg/person/year",
+        "format": ".1f"
+      },
+      {
+        "field": "meat_share",
+        "type": "quantitative",
+        "title": "Share",
+        "format": ".1%"
+      }
+    ]
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": true,
+      "gridOpacity": 0.2
+    }
+  }
+}
