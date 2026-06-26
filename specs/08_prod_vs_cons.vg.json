@@ -4,7 +4,7 @@
   "height": 320,
   "title": "Production and domestic utilization gap by meat type in 2024",
   "data": {
-    "url": "../data/meat_production_consumption.csv",
+    "url": "data/meat_production_consumption.csv",
     "format": {
       "type": "csv"
     }

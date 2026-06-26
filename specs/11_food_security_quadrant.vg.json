@@ -4,7 +4,7 @@
   "height": 400,
   "title": "Consumption level versus domestic self-sufficiency in 2024",
   "data": {
-    "url": "../data/food_security_quadrant.csv",
+    "url": "data/food_security_quadrant.csv",
     "format": {
       "type": "csv"
     }

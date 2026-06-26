@@ -4,7 +4,7 @@
   "height": 320,
   "title": "Self-sufficiency ratio trend by meat type, 2020-2026",
   "data": {
-    "url": "../data/meat_ssr_long.csv",
+    "url": "data/meat_ssr_long.csv",
     "format": {
       "type": "csv"
     }

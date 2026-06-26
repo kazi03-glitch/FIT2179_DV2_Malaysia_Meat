@@ -4,7 +4,7 @@
   "height": 320,
   "title": "Share of Malaysia's meat basket over time",
   "data": {
-    "url": "../data/meat_pcc_long.csv",
+    "url": "data/meat_pcc_long.csv",
     "format": {
       "type": "csv"
     }

@@ -4,7 +4,7 @@
   "height": 300,
   "title": "Import dependency ratio by meat type, 2020-2026",
   "data": {
-    "url": "../data/meat_import_dependency.csv",
+    "url": "data/meat_import_dependency.csv",
     "format": {
       "type": "csv"
     }

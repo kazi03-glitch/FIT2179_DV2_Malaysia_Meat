@@ -4,7 +4,7 @@
   "height": 300,
   "title": "Supply risk profile by meat type, derived from 2024 official data",
   "data": {
-    "url": "../data/meat_risk_profile.csv",
+    "url": "data/meat_risk_profile.csv",
     "format": {
       "type": "csv"
     }

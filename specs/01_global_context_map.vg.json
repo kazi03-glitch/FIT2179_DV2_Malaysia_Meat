@@ -29,7 +29,7 @@
     },
     {
       "data": {
-        "url": "../data/asean_meat_context.csv",
+        "url": "data/asean_meat_context.csv",
         "format": {
           "type": "csv"
         }
@@ -87,7 +87,7 @@
     },
     {
       "data": {
-        "url": "../data/asean_meat_context.csv",
+        "url": "data/asean_meat_context.csv",
         "format": {
           "type": "csv"
         }
