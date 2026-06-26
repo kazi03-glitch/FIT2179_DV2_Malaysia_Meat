@@ -2,10 +2,13 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 650,
   "height": 420,
-  "title": "Malaysia's meat consumption in Southeast Asian context",
+  "title": "Malaysia in Southeast Asian context",
   "projection": {
     "type": "mercator",
-    "center": [108, 5],
+    "center": [
+      108,
+      5
+    ],
     "scale": 850
   },
   "layer": [
@@ -33,6 +36,7 @@
       },
       "mark": {
         "type": "circle",
+        "size": 220,
         "opacity": 0.85,
         "stroke": "#2b2118",
         "strokeWidth": 1
@@ -46,21 +50,20 @@
           "field": "latitude",
           "type": "quantitative"
         },
-        "size": {
-          "field": "consumption_kg_per_person",
-          "type": "quantitative",
-          "title": "kg/person/year",
-          "scale": {
-            "domain": [0, 100],
-            "range": [80, 1200]
-          }
-        },
         "color": {
-          "condition": {
-            "test": "datum.country == 'Malaysia'",
-            "value": "#e6a23c"
-          },
-          "value": "#8b3a2e"
+          "field": "focus_type",
+          "type": "nominal",
+          "title": "Map role",
+          "scale": {
+            "domain": [
+              "Malaysia focus",
+              "Regional context"
+            ],
+            "range": [
+              "#e6a23c",
+              "#8b3a2e"
+            ]
+          }
         },
         "tooltip": [
           {
@@ -69,10 +72,15 @@
             "title": "Country"
           },
           {
-            "field": "consumption_kg_per_person",
+            "field": "note",
+            "type": "nominal",
+            "title": "Note"
+          },
+          {
+            "field": "malaysia_total_pcc_2024",
             "type": "quantitative",
-            "title": "Meat consumption, kg/person/year",
-            "format": ".1f"
+            "title": "Malaysia total meat PCC 2024 (kg/person/year)",
+            "format": ".2f"
           }
         ]
       }
@@ -108,7 +116,7 @@
           "type": "quantitative"
         },
         "text": {
-          "value": "Malaysia"
+          "value": "Malaysia: 80.49 kg/person/year (2024)"
         }
       }
     }

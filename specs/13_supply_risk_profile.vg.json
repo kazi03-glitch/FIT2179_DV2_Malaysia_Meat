@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 650,
   "height": 300,
-  "title": "Supply risk profile by meat type",
+  "title": "Supply risk profile by meat type, derived from 2024 official data",
   "data": {
     "url": "../data/meat_risk_profile.csv",
     "format": {
@@ -35,14 +35,22 @@
           "field": "meat_type",
           "type": "nominal",
           "title": null,
-          "sort": ["Poultry", "Pork", "Beef", "Mutton"]
+          "sort": [
+            "Poultry",
+            "Pork",
+            "Beef",
+            "Mutton"
+          ]
         },
         "color": {
           "field": "score",
           "type": "quantitative",
           "title": "Score",
           "scale": {
-            "domain": [0, 100],
+            "domain": [
+              0,
+              100
+            ],
             "scheme": "oranges"
           }
         },
@@ -62,6 +70,11 @@
             "type": "quantitative",
             "title": "Score",
             "format": ".0f"
+          },
+          {
+            "field": "data_status",
+            "type": "nominal",
+            "title": "Status"
           }
         ]
       }
@@ -87,7 +100,12 @@
         "y": {
           "field": "meat_type",
           "type": "nominal",
-          "sort": ["Poultry", "Pork", "Beef", "Mutton"]
+          "sort": [
+            "Poultry",
+            "Pork",
+            "Beef",
+            "Mutton"
+          ]
         },
         "text": {
           "field": "score",

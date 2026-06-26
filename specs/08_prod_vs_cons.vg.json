@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 650,
   "height": 320,
-  "title": "Production and consumption gap by meat type in 2024",
+  "title": "Production and domestic utilization gap by meat type in 2024",
   "data": {
     "url": "../data/meat_production_consumption.csv",
     "format": {
@@ -26,7 +26,12 @@
       "field": "meat_type",
       "type": "nominal",
       "title": null,
-      "sort": ["Poultry", "Pork", "Beef", "Mutton"]
+      "sort": [
+        "Poultry",
+        "Pork",
+        "Beef",
+        "Mutton"
+      ]
     },
     "yOffset": {
       "field": "metric"
@@ -36,8 +41,14 @@
       "type": "nominal",
       "title": "Metric",
       "scale": {
-        "domain": ["Production", "Consumption"],
-        "range": ["#4c8c6b", "#c85c3d"]
+        "domain": [
+          "Production",
+          "Consumption"
+        ],
+        "range": [
+          "#4c8c6b",
+          "#c85c3d"
+        ]
       }
     },
     "tooltip": [
@@ -56,6 +67,11 @@
         "type": "quantitative",
         "title": "Tonnes",
         "format": ","
+      },
+      {
+        "field": "data_status",
+        "type": "nominal",
+        "title": "Status"
       }
     ]
   },

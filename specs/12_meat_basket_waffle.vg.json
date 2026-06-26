@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 500,
   "height": 500,
-  "title": "Malaysia's latest meat basket, shown as 100 units",
+  "title": "Malaysia's 2024 official meat basket, shown as 100 units",
   "data": {
     "sequence": {
       "start": 1,
@@ -25,7 +25,7 @@
       "as": "row"
     },
     {
-      "calculate": "datum.meat_type == 'Poultry' ? '70 units' : datum.meat_type == 'Pork' ? '20 units' : datum.meat_type == 'Beef' ? '8 units' : '2 units'",
+      "calculate": "datum.meat_type == 'Poultry' ? 'about 70 units' : datum.meat_type == 'Pork' ? 'about 20 units' : datum.meat_type == 'Beef' ? 'about 8 units' : 'about 2 units'",
       "as": "share_label"
     }
   ],
@@ -52,8 +52,18 @@
       "type": "nominal",
       "title": "Meat type",
       "scale": {
-        "domain": ["Poultry", "Pork", "Beef", "Mutton"],
-        "range": ["#e6a23c", "#d67c8c", "#8b3a2e", "#7a4ea3"]
+        "domain": [
+          "Poultry",
+          "Pork",
+          "Beef",
+          "Mutton"
+        ],
+        "range": [
+          "#e6a23c",
+          "#d67c8c",
+          "#8b3a2e",
+          "#7a4ea3"
+        ]
       }
     },
     "tooltip": [

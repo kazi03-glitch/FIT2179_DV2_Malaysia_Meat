@@ -1,7 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 700,
+  "width": 650,
   "height": 260,
+  "title": "Latest official meat consumption ranking, 2024",
   "data": {
     "url": "../data/meat_pcc_long.csv",
     "format": {
@@ -25,15 +26,30 @@
     "y": {
       "field": "meat_type",
       "type": "nominal",
-      "sort": ["Poultry", "Pork", "Beef", "Mutton"],
+      "sort": [
+        "Poultry",
+        "Pork",
+        "Beef",
+        "Mutton"
+      ],
       "title": null
     },
     "color": {
       "field": "meat_type",
       "type": "nominal",
       "scale": {
-        "domain": ["Poultry", "Beef", "Mutton", "Pork"],
-        "range": ["#e6a23c", "#8b3a2e", "#7a4ea3", "#d67c8c"]
+        "domain": [
+          "Poultry",
+          "Beef",
+          "Mutton",
+          "Pork"
+        ],
+        "range": [
+          "#e6a23c",
+          "#8b3a2e",
+          "#7a4ea3",
+          "#d67c8c"
+        ]
       },
       "legend": null
     },
@@ -47,7 +63,12 @@
         "field": "pcc_kg_per_person",
         "type": "quantitative",
         "title": "kg/person/year",
-        "format": ".1f"
+        "format": ".2f"
+      },
+      {
+        "field": "data_status",
+        "type": "nominal",
+        "title": "Status"
       }
     ]
   },

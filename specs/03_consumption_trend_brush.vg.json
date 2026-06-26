@@ -8,65 +8,140 @@
   },
   "vconcat": [
     {
-      "width": "container",
+      "width": 650,
       "height": 280,
-      "title": "Meat consumption trend in Malaysia",
-      "mark": {
-        "type": "line",
-        "point": true,
-        "strokeWidth": 3
-      },
-      "encoding": {
-        "x": {
-          "field": "year",
-          "type": "quantitative",
-          "scale": {
-            "domain": {
-              "param": "brush"
+      "title": "Meat consumption trend in Malaysia, 2020-2026",
+      "layer": [
+        {
+          "mark": {
+            "type": "line",
+            "point": true,
+            "strokeWidth": 3
+          },
+          "encoding": {
+            "x": {
+              "field": "year",
+              "type": "quantitative",
+              "scale": {
+                "domain": {
+                  "param": "brush"
+                }
+              },
+              "title": "Year",
+              "axis": {
+                "format": "d"
+              }
+            },
+            "y": {
+              "field": "pcc_kg_per_person",
+              "type": "quantitative",
+              "title": "kg per person per year"
+            },
+            "color": {
+              "field": "meat_type",
+              "type": "nominal",
+              "title": "Meat type",
+              "scale": {
+                "domain": [
+                  "Poultry",
+                  "Beef",
+                  "Mutton",
+                  "Pork"
+                ],
+                "range": [
+                  "#e6a23c",
+                  "#8b3a2e",
+                  "#7a4ea3",
+                  "#d67c8c"
+                ]
+              }
+            },
+            "strokeDash": {
+              "field": "data_status",
+              "type": "nominal",
+              "title": "Data status",
+              "scale": {
+                "domain": [
+                  "Official",
+                  "Projected"
+                ],
+                "range": [
+                  [],
+                  [
+                    6,
+                    4
+                  ]
+                ]
+              }
+            },
+            "tooltip": [
+              {
+                "field": "year",
+                "type": "quantitative",
+                "title": "Year",
+                "format": "d"
+              },
+              {
+                "field": "meat_type",
+                "type": "nominal",
+                "title": "Meat type"
+              },
+              {
+                "field": "pcc_kg_per_person",
+                "type": "quantitative",
+                "title": "kg/person/year",
+                "format": ".2f"
+              },
+              {
+                "field": "data_status",
+                "type": "nominal",
+                "title": "Status"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "rule",
+            "strokeDash": [
+              4,
+              4
+            ],
+            "color": "#2b2118"
+          },
+          "encoding": {
+            "x": {
+              "datum": 2024.5
             }
-          },
-          "title": "Year",
-          "axis": {
-            "format": "d"
           }
         },
-        "y": {
-          "field": "pcc_kg_per_person",
-          "type": "quantitative",
-          "title": "kg per person per year"
-        },
-        "color": {
-          "field": "meat_type",
-          "type": "nominal",
-          "title": "Meat type",
-          "scale": {
-            "domain": ["Poultry", "Beef", "Mutton", "Pork"],
-            "range": ["#e6a23c", "#8b3a2e", "#7a4ea3", "#d67c8c"]
-          }
-        },
-        "tooltip": [
-          {
-            "field": "year",
-            "type": "quantitative",
-            "title": "Year",
-            "format": "d"
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "bottom",
+            "dx": 6,
+            "dy": -8,
+            "fontSize": 12,
+            "fontWeight": "bold",
+            "color": "#2b2118"
           },
-          {
-            "field": "meat_type",
-            "type": "nominal",
-            "title": "Meat type"
-          },
-          {
-            "field": "pcc_kg_per_person",
-            "type": "quantitative",
-            "title": "kg/person/year",
-            "format": ".1f"
+          "encoding": {
+            "x": {
+              "datum": 2024.5
+            },
+            "y": {
+              "datum": 55
+            },
+            "text": {
+              "value": "Projection starts"
+            }
           }
-        ]
-      }
+        }
+      ]
     },
     {
-      "width": "container",
+      "width": 650,
       "height": 60,
       "mark": {
         "type": "line"
@@ -76,7 +151,9 @@
           "name": "brush",
           "select": {
             "type": "interval",
-            "encodings": ["x"]
+            "encodings": [
+              "x"
+            ]
           }
         }
       ],
@@ -103,8 +180,18 @@
           "type": "nominal",
           "legend": null,
           "scale": {
-            "domain": ["Poultry", "Beef", "Mutton", "Pork"],
-            "range": ["#e6a23c", "#8b3a2e", "#7a4ea3", "#d67c8c"]
+            "domain": [
+              "Poultry",
+              "Beef",
+              "Mutton",
+              "Pork"
+            ],
+            "range": [
+              "#e6a23c",
+              "#8b3a2e",
+              "#7a4ea3",
+              "#d67c8c"
+            ]
           }
         }
       }

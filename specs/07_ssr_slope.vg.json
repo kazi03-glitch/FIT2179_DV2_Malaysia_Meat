@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 650,
   "height": 320,
-  "title": "Self-sufficiency ratio trend by meat type",
+  "title": "Self-sufficiency ratio trend by meat type, 2020-2026",
   "data": {
     "url": "../data/meat_ssr_long.csv",
     "format": {
@@ -30,7 +30,10 @@
           "type": "quantitative",
           "title": "Self-sufficiency ratio (%)",
           "scale": {
-            "domain": [0, 120]
+            "domain": [
+              0,
+              120
+            ]
           }
         },
         "color": {
@@ -38,8 +41,36 @@
           "type": "nominal",
           "title": "Meat type",
           "scale": {
-            "domain": ["Poultry", "Beef", "Mutton", "Pork"],
-            "range": ["#e6a23c", "#8b3a2e", "#7a4ea3", "#d67c8c"]
+            "domain": [
+              "Poultry",
+              "Beef",
+              "Mutton",
+              "Pork"
+            ],
+            "range": [
+              "#e6a23c",
+              "#8b3a2e",
+              "#7a4ea3",
+              "#d67c8c"
+            ]
+          }
+        },
+        "strokeDash": {
+          "field": "data_status",
+          "type": "nominal",
+          "title": "Data status",
+          "scale": {
+            "domain": [
+              "Official",
+              "Projected"
+            ],
+            "range": [
+              [],
+              [
+                6,
+                4
+              ]
+            ]
           }
         },
         "tooltip": [
@@ -59,6 +90,11 @@
             "type": "quantitative",
             "title": "SSR (%)",
             "format": ".1f"
+          },
+          {
+            "field": "data_status",
+            "type": "nominal",
+            "title": "Status"
           }
         ]
       }
@@ -67,12 +103,30 @@
       "mark": {
         "type": "rule",
         "color": "#2b2118",
-        "strokeDash": [6, 4],
+        "strokeDash": [
+          6,
+          4
+        ],
         "strokeWidth": 2
       },
       "encoding": {
         "y": {
           "datum": 100
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          4
+        ],
+        "color": "#2b2118"
+      },
+      "encoding": {
+        "x": {
+          "datum": 2024.5
         }
       }
     },

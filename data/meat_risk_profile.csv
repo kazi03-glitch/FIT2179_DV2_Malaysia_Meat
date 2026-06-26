@@ -1,17 +1,17 @@
-meat_type,indicator,score
-Poultry,Consumption level,95
-Poultry,Domestic supply strength,90
-Poultry,Import dependency,10
-Poultry,Supply risk,20
-Pork,Consumption level,45
-Pork,Domestic supply strength,75
-Pork,Import dependency,25
-Pork,Supply risk,35
-Beef,Consumption level,25
-Beef,Domestic supply strength,20
-Beef,Import dependency,80
-Beef,Supply risk,85
-Mutton,Consumption level,10
-Mutton,Domestic supply strength,10
-Mutton,Import dependency,90
-Mutton,Supply risk,95
+meat_type,indicator,score,data_status
+Poultry,Consumption level,100,Derived from 2024 official data
+Poultry,Domestic supply strength,94,Derived from 2024 official data
+Poultry,Import dependency,11,Derived from 2024 official data
+Poultry,Supply risk,9,Derived from 2024 official data
+Pork,Consumption level,28,Derived from 2024 official data
+Pork,Domestic supply strength,68,Derived from 2024 official data
+Pork,Import dependency,32,Derived from 2024 official data
+Pork,Supply risk,32,Derived from 2024 official data
+Beef,Consumption level,12,Derived from 2024 official data
+Beef,Domestic supply strength,17,Derived from 2024 official data
+Beef,Import dependency,83,Derived from 2024 official data
+Beef,Supply risk,83,Derived from 2024 official data
+Mutton,Consumption level,3,Derived from 2024 official data
+Mutton,Domestic supply strength,9,Derived from 2024 official data
+Mutton,Import dependency,92,Derived from 2024 official data
+Mutton,Supply risk,92,Derived from 2024 official data

@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "width": 650,
-  "height": 260,
-  "title": "Import dependency ratio by meat type",
+  "height": 300,
+  "title": "Import dependency ratio by meat type, 2020-2026",
   "data": {
     "url": "../data/meat_import_dependency.csv",
     "format": {
@@ -25,14 +25,22 @@
           "field": "meat_type",
           "type": "nominal",
           "title": null,
-          "sort": ["Poultry", "Pork", "Beef", "Mutton"]
+          "sort": [
+            "Poultry",
+            "Pork",
+            "Beef",
+            "Mutton"
+          ]
         },
         "color": {
           "field": "idr_percent",
           "type": "quantitative",
           "title": "Import dependency (%)",
           "scale": {
-            "domain": [0, 100],
+            "domain": [
+              0,
+              100
+            ],
             "scheme": "reds"
           }
         },
@@ -52,6 +60,11 @@
             "type": "quantitative",
             "title": "Import dependency (%)",
             "format": ".1f"
+          },
+          {
+            "field": "data_status",
+            "type": "nominal",
+            "title": "Status"
           }
         ]
       }
@@ -71,7 +84,12 @@
         "y": {
           "field": "meat_type",
           "type": "nominal",
-          "sort": ["Poultry", "Pork", "Beef", "Mutton"]
+          "sort": [
+            "Poultry",
+            "Pork",
+            "Beef",
+            "Mutton"
+          ]
         },
         "text": {
           "field": "idr_percent",

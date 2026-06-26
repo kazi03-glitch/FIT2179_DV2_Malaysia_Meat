@@ -18,7 +18,9 @@
           "as": "total_meat"
         }
       ],
-      "groupby": ["year"]
+      "groupby": [
+        "year"
+      ]
     },
     {
       "calculate": "datum.pcc_kg_per_person / datum.total_meat",
@@ -46,7 +48,10 @@
         "format": "%"
       },
       "scale": {
-        "domain": [0, 1]
+        "domain": [
+          0,
+          1
+        ]
       },
       "stack": "zero"
     },
@@ -55,8 +60,18 @@
       "type": "nominal",
       "title": "Meat type",
       "scale": {
-        "domain": ["Poultry", "Beef", "Mutton", "Pork"],
-        "range": ["#e6a23c", "#8b3a2e", "#7a4ea3", "#d67c8c"]
+        "domain": [
+          "Poultry",
+          "Beef",
+          "Mutton",
+          "Pork"
+        ],
+        "range": [
+          "#e6a23c",
+          "#8b3a2e",
+          "#7a4ea3",
+          "#d67c8c"
+        ]
       }
     },
     "tooltip": [
@@ -75,13 +90,18 @@
         "field": "pcc_kg_per_person",
         "type": "quantitative",
         "title": "kg/person/year",
-        "format": ".1f"
+        "format": ".2f"
       },
       {
         "field": "meat_share",
         "type": "quantitative",
         "title": "Share",
         "format": ".1%"
+      },
+      {
+        "field": "data_status",
+        "type": "nominal",
+        "title": "Status"
       }
     ]
   },
